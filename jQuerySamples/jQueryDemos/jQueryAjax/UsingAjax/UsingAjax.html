@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var customer = 'cust=' + JSON.stringify({ FirstName: 'John', LastName: 'Doe' });
+
+            $('#MyButton').click(function () {
+                $.ajax({
+                    url: '../CustomerService.svc/InsertCustomer',                   
+                    data: customer,
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        alert("Insert status: " + data.d.Status + '\n' + data.d.Message);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error occurred: ' + status);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="MyButton">Click to Use .ajax() Function</button>
+    <div id="OutputDiv"></div>
+</body>
+</html>

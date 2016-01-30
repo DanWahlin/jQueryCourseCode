@@ -1,0 +1,569 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Your Order</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link href="Content/Stylesheets/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div style="float:left;width:25%;margin-left:30px;">
+                <img src="Content/Images/OrderUpLogo_Small.png" />
+            </div>
+            <div style="float:left;width:70%;">
+                <div id="title">
+                    <div style="width:100%;">
+                        <a href="#" class="HeaderLink">Home</a>
+                        &nbsp;&nbsp;<span style="font-size:15pt;">|</span>&nbsp;&nbsp;
+                        <a href="#" class="HeaderLink">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;" />
+        </div>
+        <main>
+            <div id="WizardSteps">
+               <ul id="WizardStepTabs">
+                    <li class="WizardStepHeader">
+                        <a href="#DeliveryInformation">1 - Delivery Location</a>                
+                    </li>        
+                    <li class="WizardStepHeader">
+                        <a href="#VendorItems">2 - Order Items</a>
+                    </li>
+                    <li class="WizardStepHeader">
+                        <a href="#PaymentInformation">3 - Payment Info</a>          
+                    </li>
+                    <li class="WizardStepHeader">
+                        <a href="#ApproveOrder">4 - Approve Order</a>
+                    </li>
+                </ul>      
+
+                <div class="WizardStep" id="DeliveryInformation">
+                    <fieldset style="width:90%;">
+                        <legend>Delivery Location Information</legend>
+
+                        <span class="Instructions">
+                            Please complete the following information.  All fields are required accept for comments.
+                        </span>
+                        <br /><br />
+                        <table width="100%" cellspacing="5" id="DeliveryInformationTable">
+                            <tr>
+                                <td style="width:20%;"><label for="Delivery.Name">Office Name:</label></td>
+                                <td style="width:80%;">
+                                    <input id="Delivery_Name" name="Delivery.Name" type="text" value="Joe&#39;s Electronics" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;"><label for="Delivery.Street">Street Address:</label></td>
+                                <td style="width:80%;">
+                                    <input id="Delivery_Street" name="Delivery.Street" style="width:250px;" type="text" value="1313 Ridge Way" />
+                                    &nbsp;&nbsp;
+                                    <label for="Delivery.Suite">Suite:</label>
+                                    &nbsp;&nbsp;
+                                    <input id="Delivery_Suite" name="Delivery.Suite" style="width:50px;" type="text" value="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery.City">City:</label></td>
+                                <td>
+                                    <input id="Delivery_City" name="Delivery.City" type="text" value="Phoenix" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery.StateID">State:</label></td>
+                                <td>
+                                    <select id="Delivery_StateID" name="Delivery.StateID">
+                                        <option value="">Select One</option>
+                                        <option selected="selected" value="AZ">Arizona</option>
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="UT">Utah</option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery.Zip">Zip Code:</label></td>
+                                <td>
+                                    <input id="Delivery_Zip" maxlength="5" name="Delivery.Zip" style="width:50px;" type="text" value="85249" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="OrderHeader">Delivery Date/Time</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery.DeliveryDate">Delivery Date:</label></td>
+                                <td>
+                                    <input id="Delivery_DeliveryDate" maxlength="10" name="Delivery.DeliveryDate" style="width:100px;" type="text" value="" />
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery_DeliveryTime">Delivery Time:</label></td>
+                                <td>
+                                    <select id="Delivery_DeliveryTime" name="Delivery.DeliveryTime">
+                                        <option value="">Select One</option>
+                                        <option value="8:00 AM - 12:00 PM">8:00 - 12:00 AM</option>
+                                        <option value="1:00 - 5:00 PM">1:00 - 5:00 PM</option>
+                                        <option value="After 5 PM">After 5 PM</option>
+                                    </select>
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Delivery.SpecialInstructions">Special Instructions:</label></td>
+                                <td>
+                                    <textarea cols="40" id="Delivery_SpecialInstructions" name="Delivery.SpecialInstructions" rows="5"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+
+                <div class="WizardStep" id="VendorItems">
+                    <form id="OrderForm">
+                        <fieldset style="width:90%;">
+                            <legend>Select Items</legend>
+                            <table id="OrderTable" style="width:100%;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="VendorNameHeader">Acme Corp</span>
+                                            &nbsp;&nbsp;1234 Anywhere St., Seattle  Washington&nbsp;&nbsp;&nbsp;Phone: 800-123-1234
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br />
+                                            <span class="Instructions" style="font-weight:bold;color:Navy;">
+                                                Order an item by checking the box next to it and then entering the number of people that should receive the item.
+                                                <span>
+                                                    Acme Corp requires a minimum order of $75.00.
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:bold;font-size:12pt;">
+                                            <span>Sub Total:&nbsp;&nbsp;</span><span style="color:Green;">$</span><span id="SubTotal" style="color:Green;">0.00</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="OrderHeader">Main Items <span id="NumberOrderedDetails" style="color:Navy;font-size:10pt;"></span></td>
+                                    </tr>
+                                    <tr style="height:5px;">
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="Order_VendorItemCheckbox_1" name="Order.VendorItemCheckbox_1"
+                                                   value="1" category="Main" price="299.99"
+                                                   itemname="Note 4" />
+                                            &nbsp;&nbsp;
+                                            <span class="OrderItem">
+                                                Note 4 - $299.99
+                                            </span>
+
+                                            <div id='vendorItemDiv_1'></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="OrderItemDesc">
+                                                Note 4 Android Phone
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:5px;">
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="Order_VendorItemCheckbox_2" name="Order.VendorItemCheckbox_2"
+                                                   value="2" category="Main" price="249.99"
+                                                   itemname="iPhone 6 Plus" />
+                                            &nbsp;&nbsp;
+                                            <span class="OrderItem">
+                                                iPhone 6 Plus - $249.99
+                                            </span>
+
+                                            <div id='vendorItemDiv_2'></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="OrderItemDesc">
+                                                iPhone 6 Plus Phone
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="OrderHeader">Accessories</td>
+                                    </tr>
+
+
+                                    <tr style="height:5px;">
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="Order_VendorItemCheckbox_4" name="Order.VendorItemCheckbox_4"
+                                                   value="4" category="Accessory" price="9.99"
+                                                   itemname="Android Phone Car Charger" />
+                                            &nbsp;&nbsp;
+                                            <span class="OrderItem">
+                                                Android Phone Car Charger - $9.99
+                                            </span>
+
+                                            <div id='vendorItemDiv_4'></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="OrderItemDesc">
+                                                Charge your phone right in your car!
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:5px;">
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="Order_VendorItemCheckbox_5" name="Order.VendorItemCheckbox_5"
+                                                   value="5" category="Accessory" price="29.99"
+                                                   itemname="Phone Car Vent Folder" />
+                                            &nbsp;&nbsp;
+                                            <span class="OrderItem">
+                                                Phone Car Vent Folder - $29.99
+                                            </span>
+
+                                            <div id='vendorItemDiv_5'></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="OrderItemDesc">
+                                                Easily hold your phone in your car!
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="WizardStep" id="PaymentInformation">
+                    <fieldset style="width:90%;">
+                        <legend>Payment Information</legend>
+                        <span class="Instructions">
+                            Please enter payment information.
+                        </span>
+                        <br /><br />
+                        <table width="100%" cellspacing="5" id="PaymentInformationTable">
+                            <tr>
+                                <td style="width:20%;"><label for="Payment.CreditCardTypeID">Card Type:</label></td>
+                                <td style="width:80%;">
+                                    <select id="Payment_CreditCardTypeID" name="Payment.CreditCardTypeID">
+                                        <option value="">Select One</option>
+                                        <option selected="selected" value="1">American Express</option>
+                                        <option value="2">Visa</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.CreditCardNumber">Card Number:</label></td>
+                                <td>
+                                    <input id="Payment_CreditCardNumber" maxlength="16" name="Payment.CreditCardNumber" type="text" value="123456789011234" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Expiration Date:</label></td>
+                                <td>
+                                    <span style="width:100px;vertical-align:top;">
+                                        Month:
+                                        <select id="Month" name="Month">
+                                            <option value="">Select One</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option selected="selected">12</option>
+                                        </select>
+                                    </span>
+                                    <span style="width:100px;vertical-align:top;">
+                                        Year:
+                                        <select id="Year" name="Year">
+                                            <option value="">Select One</option>
+                                            <option selected="selected">2014</option>
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                        </select>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="OrderHeader">Card Information</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.CreditCardHolderName">Name on Card:</label></td>
+                                <td>
+                                    <input id="Payment_CreditCardHolderName" name="Payment.CreditCardHolderName" type="text" value="James Turner" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.CreditCardSecurityCode">Security Code:</label></td>
+                                <td>
+                                    <input id="Payment_CreditCardSecurityCode" maxlength="4" name="Payment.CreditCardSecurityCode" style="width:40px;" type="text" value="1234" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.Street">Street:</label></td>
+                                <td>
+                                    <input id="Payment_Street" name="Payment.Street" type="text" value="555 Main St." />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.City">City:</label></td>
+                                <td>
+                                    <input id="Payment_City" name="Payment.City" type="text" value="Mesa" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.StateID">State:</label></td>
+                                <td>
+                                    <select id="Payment_StateID" name="Payment.StateID">
+                                        <option value="">Select One</option>
+                                        <option selected="selected" value="AZ">Arizona</option>
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="UT">Utah</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="Payment.Zip">Zip Code:</label></td>
+                                <td>
+                                    <input id="Payment_Zip" maxlength="5" name="Payment.Zip" style="width:50px;" type="text" value="85248" />
+
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+
+                <div class="WizardStep" id="ApproveOrder">
+                    <fieldset style="width:90%;">
+                        <legend id="ApproveLegend">Review and Place Your Order</legend>
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="float:left;">
+
+                                            <span class="VendorNameHeader">Acme Corp</span>
+                                            <br />1234 Anywhere St., Seattle  Washington&nbsp;&nbsp;&nbsp;Phone: 800-123-1234
+                                        </div>
+                                        <div style="float:right;">
+                                            <img id="PlaceOrderButton" src="Content/Images/PlaceOrderButton.jpg" style="cursor:pointer;" title="Place Order" alt="Place Order" style="text-align:right;" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+
+                        <div id="OrderSummaryOutput"></div>
+                        <script id="OrderSummaryTemplate" type="text/x-handlebars-template">
+                            <table style="width:100%;">
+                                <tbody>
+                                    <tr>
+                                        <td class="OrderHeader">Totals:</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:12pt;">
+                                            <table style="width:400px;">
+                                                <tr>
+                                                    <td style="width:50%;">Sub Total:</td>
+                                                    <td>${{FinalSubTotal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:50%;">Sales Tax:</td>
+                                                    <td>${{ FinalSalesTax }}</td>
+                                                </tr>
+                                                {{#if DeliveryFee}}
+                                                    <tr>
+                                                        <td style="width:50%;">Delivery Fee:</td>
+                                                        <td>${{ DeliveryFee }}</td>
+                                                    </tr>
+                                                {{/if}}
+                                                <tr>
+                                                    <td style="width:50%;">Admin Fee:</td>
+                                                    <td>${{ AdminFee }}</td>
+                                                </tr>
+                                                <tr style="border-top:1px solid black;">
+                                                    <td style="width:50%;font-weight:bold;">Total:</td>
+                                                    <td>${{ FinalTotal }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Will be charged to your credit card ending with {{ CreditCard }}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="OrderHeader">Delivery Information</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table style="width:500px;">
+                                                <tr>
+                                                    <td style="width:25%;">Deliver To:</td>
+                                                    <td>{{ DeliveryName }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:25%;">Address:</td>
+                                                    <td>{{ DeliveryAddress }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:25%;">Date and Time:</td>
+                                                    <td>{{ DeliveryDate }} from {{ DeliveryTime }}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="OrderHeader">Items Ordered</td>
+                                    </tr>
+                                    {{#if MainItems}}
+                                    {{#each MainItems}}
+                                    <tr>
+                                        <td>
+                                            {{ Name }} - {{ NumberOrdered }} ordered at ${{ Price }} per item
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                    {{else}}
+                                    <tr>
+                                        <td>No items selected</td>
+                                    </tr>
+                                    {{/if}}
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="OrderHeader">Accessories Ordered</td>
+                                    </tr>
+                                    {{#if AccessoryItems }}
+                                    {{#each AccessoryItems}}
+                                    <tr>
+                                        <td>
+                                            {{ Name }} - {{ NumberOrdered }} ordered at ${{ Price }} per item
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                    {{else}}
+                                    <tr>
+                                        <td>No items selected</td>
+                                    </tr>
+                                    {{/if}}
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </script>
+
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <div class="WizardControls">
+                <div style="float:left;width:50%;text-align:left;margin-left:10px;">
+                    <img id="BackButton" class="WizardButton" src="Content/Images/BackButton.jpg" alt="Back Button" />
+                </div>
+                <div style="float:right;width:45%;text-align:right;padding-right:10px;">
+                    <img id="NextButton" class="WizardButton" src="Content/Images/NextButton.jpg" alt="Next Button" />
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+
+            <input id="MinimumOrderAmount" name="MinimumOrderAmount" type="hidden" value="75.00" />
+            <input id="SalesTaxRate" name="SalesTaxRate" type="hidden" value="8.10" />
+            <input id="DeliveryFee" name="DeliveryFee" type="hidden" value="50.00" />
+            <input id="VendorID" name="VendorID" type="hidden" value="5" />        
+            <input type="hidden" id="ClientSubTotal" name="ClientSubTotal" value="" />
+            <input type="hidden" id="ClientTotal" name="ClientTotal" value="" />
+
+        </main>
+    </div>
+
+    <div id="footer">
+        <br />
+        ©2014 Wahlin Consulting
+    </div>
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+
+    <script src="Scripts/modernizr2.js"></script>
+    <script src="Scripts/handlebars.js"></script>
+
+    <script src="Scripts/jquery.extensions.js"></script>
+    <script src="Scripts/jquery.bgiframe.min.js"></script>
+    <script src="Scripts/jquery.numeric.js"></script>
+    <script src="Scripts/jquery.maskedinput.js"></script>
+    <script src="Scripts/jquery.blockUI.js"></script>
+
+    <script src="Scripts/minMaxHighlighter.js"></script>
+    <script src="Scripts/order.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Untitled Document</title>
+    <script src="../Scripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("a").click(function(){
+           $(this).hide();
+       });
+  });
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-family: Arial, Helvetica, sans-serif}
+.style2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="style2">Selecting  by Element Name</p>
+<p><a href="#" id="myLink">Acme Company</a></p>
+
+<p><a href="#" id="submitme">Submit</a></p>
+<p class="style1">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(document).ready(function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(&quot;a&quot;).click(function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).hide();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br />
+});<br />
+&lt;/script&gt;</p>
+</body>
+</html>

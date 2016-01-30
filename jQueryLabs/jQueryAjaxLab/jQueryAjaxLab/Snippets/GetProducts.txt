@@ -1,0 +1,21 @@
+﻿$.getJSON(serviceUrl + 'products', function (prods) {
+    var div = $('#ProductsDiv');
+    div.html('');
+    $('#ProductID').html('');
+    $('#ModelName').val('');
+    $('#Categories').val('');
+    for (var i = 0; i < prods.length; i++) {
+        var prodDiv = $(document.createElement('div'));
+        prodDiv.data("data", prods[i]); //Store product object in DOM        
+        prodDiv.addClass('ProductDivContainer');
+        prodDiv.append('<div class="ImageDiv"><img src="' +
+                    images + prods[i].ProductImage + '" /></div>');
+        prodDiv.append('<div class="ProductDiv">' +
+                    prods[i].ModelName + '</div>');
+        prodDiv.click(showProduct);
+        div.append(prodDiv);
+    }
+    $('.ProductDiv').hover(function () {
+        $(this).toggleClass('Over');
+    });
+});

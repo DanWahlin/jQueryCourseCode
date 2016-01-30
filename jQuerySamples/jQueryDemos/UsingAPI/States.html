@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="../Scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+    
+        $('.state').each(function(i) { 
+	 	    this.title=("My Index = " + i);
+		    $(this).prepend('<span class="lz">' + (i+1) + '. </span>');
+		    $(this).append('<span class="cn">, USA</span>');
+   	    });
+	
+	      $("img").attr({
+		    title: "My Image Title",
+		    border: "2",
+		    style: "border-color:red"
+	      }); 
+	  
+	      $("#ri").click(function(){
+	   	    $(".cn, .lz").remove();
+	     });
+	 
+	     $("#ri, #dom").hover(function(){$(this).toggleClass("highlight");});
+
+	      $("#dom").click(function(){
+	   	    alert($('body').html());
+	     });
+     });
+    </script>
+
+    <style type="text/css">
+    <!--
+    .highlight { background:yellow; }
+    -->
+    </style>
+</head>
+
+<body>
+
+    <div class="state">Alabama</div>
+    <div class="state">Alaska</div>
+    <div class="state">Arizona</div>
+    <div class="state">Arkansas</div>
+    <div class="state">California</div>
+    <div class="state">Colorado</div>
+    <div class="state">Connecticut</div>
+    <div class="state">Delaware</div>
+    <div class="state">Florida</div>
+    <div class="state">Georgia</div>
+    <img style="border-color:red" src="http://www.thewahlingroup.com/Images/LogoSmall2.png" />
+    <br /><br />
+    <div>
+      <span id="dom" style="text-decoration:underline; cursor:pointer">
+          View DOM</span>
+    </div>
+    <br />
+    <div>
+      <span id="ri" style="text-decoration:underline; cursor:pointer">
+          Remove Nodes</span>
+    </div>
+    <p>View DOM first, Remove Nodes, then view DOM again<br />
+    </p>
+
+</body>
+</html>

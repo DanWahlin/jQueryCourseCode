@@ -1,0 +1,17 @@
+﻿$.ajax({
+    url: serviceUrl + 'product',
+    type: 'PUT',
+    data: JSON.stringify(currProd),
+    dataType: 'json',
+    contentType: 'application/json',
+    success: function (data) {
+        if (data.Status) {
+            currProd = null;
+            getProducts();
+        }
+        else {
+            alert("Update failed.");
+        }
+    },
+});
+return false;

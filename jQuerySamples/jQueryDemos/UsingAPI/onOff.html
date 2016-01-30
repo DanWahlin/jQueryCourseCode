@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        span
+        {
+            color: #008;
+        }
+        span.hilight
+        {
+            color: #FF0000;
+            font-weight: bolder;
+        }
+        .style4
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p.over
+        {
+            background: #ccc;
+        }
+        span
+        {
+            color: red;
+        }
+    </style>
+    <script src="../Scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#bound").on('click', function () {
+                alert("I am bound by on()");
+            });
+
+            $("#unBindMe").click(function () {
+                alert("Unbinding #bound ID");
+                $("#bound").off();
+            });
+
+            $("div").hover(
+                function () { $(this).css("background-color", "#00FF99") },
+                function () { $(this).css("background-color", "#FFFFFF") }
+            );
+        });
+    </script>
+</head>
+<body>
+    <div id="bound">
+        I am bound</div>
+    <p />
+    <div id="unBindMe">
+        unbind "I am bound"
+    </div>
+    <br />
+    
+    <p>
+        &lt;script type=&quot;text/javascript&quot;&gt;<br>
+        $(document).ready(function(){<br>
+        $(&quot;#bound&quot;).on('click',function(){<br>
+        alert(&quot;I am bound by on()&quot;);<br>
+        });</p>
+    <p>
+        $(&quot;#unBindMe&quot;).click(function(){<br>
+        alert(&quot;ID unBindMe clicked, and I will fire against ID test to execute .unbind()&quot;);<br>
+        $(&quot;#bound&quot;).unbind();<br>
+        });</p>
+    <p>
+        $(&quot;div&quot;).hover(<br>
+        function(){$(this).css(&quot;background-color&quot;, &quot;#00FF99&quot;)},<br>
+        function(){$(this).css(&quot;background-color&quot;, &quot;#FFFFFF&quot;)}<br>
+        );<br>
+        });<br>
+        &lt;/script&gt;</p>
+</body>
+</html>

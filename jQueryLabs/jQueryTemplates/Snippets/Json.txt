@@ -1,0 +1,14 @@
+﻿    var data = {
+                    FinalSubTotal  : subTotal.toFixed(2),
+                    FinalSalesTax  : salesTaxAmount.toFixed(2),
+                    FinalTotal     : total.toFixed(2),
+                    DeliveryFee    : deliveryFee.toFixed(2),
+                    AdminFee       : adminFee.toFixed(2),
+                    DeliveryName   : $('#Delivery_Name').val(),
+                    DeliveryAddress: deliveryAddress,
+                    CreditCard     : abbrCreditCard,
+                    DeliveryDate   : $('#Delivery_DeliveryDate').val(),
+                    DeliveryTime   : $('#Delivery_DeliveryTime option:selected').text(),
+                    MainItems      : generateJson('Main'),
+                    AccessoryItems : generateJson('Accessory')
+                };

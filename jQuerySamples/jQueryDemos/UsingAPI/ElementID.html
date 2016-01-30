@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Selecting by Element ID</title>
+    <script src="../Scripts/jquery.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#myID2").click(function(){
+           $(this).hide();
+       });
+  });
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-family: Arial, Helvetica, sans-serif}
+.style2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+.style4 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body>
+<p class="style2">Selecting by Element ID</p>
+<div id="myID1">myID1</div>
+<div id="myID2">myID2</div>
+<div id="myID3">myID3</div>
+<p class="style1">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(document).ready(function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="style4">&quot;#myID2&quot;</span>).click(function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).hide();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br />
+});<br />
+&lt;/script&gt;</p>
+</body>
+</html>

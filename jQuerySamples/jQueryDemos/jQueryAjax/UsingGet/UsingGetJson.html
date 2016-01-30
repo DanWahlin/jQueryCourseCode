@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyButton').click(function () {
+                $.getJSON('../CustomerJson.aspx',{id:1},
+                    function (data) {
+                        alert('CustomerID: ' + data.ID + ' Name: ' +
+                           data.FirstName + ' ' + data.LastName);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="MyButton">Click to Send ID and Get Customer JSON</button>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+   <style>
+      #cards > div { width:30px; height:96px; margin:2px; float:left; }
+      .card { height: 95px; width: 70px;}
+   </style>
+
+   <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.card').click(function() {
+                $(this).hide(2000);
+            });
+
+            $('button').click(function() {
+                $('.card').show('slow');
+            });
+
+            $('#toggle').click(function() {
+                $('.image').toggle();
+            });
+            
+            $('#fadeOut').click(function() {
+                $('#logo').fadeOut('slow');
+            });
+
+            $('#fadeIn').click(function() {
+                $('#logo').fadeIn('slow');
+            });
+
+            $('#clickme').click(function() {
+                $('#flower').animate({
+                    opacity: 0.25,
+                    left: '+=50',
+                    height: 'toggle'
+                }, 2000);
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+    <div id="cards">
+        <div><img src="images/c5.gif" class="card" /></div>
+        <div><img src="images/c4.gif" class="card" /></div>
+        <div><img src="images/c3.gif" class="card" /></div>
+        <div><img src="images/c2.gif" class="card" /></div>
+        <div><img src="images/c1.gif" class="card" /></div>
+    </div>
+    <div style="clear:both"></div>
+    <br /><br />
+    <button>Show Images</button>
+    <button id="toggle">Toggle Images</button>
+    <br /><br />
+    <img src="Images/LogoSmall2.png"
+         id="logo"
+         class="image" />
+    <span id="fadeOut">fade out</span>&nbsp;&nbsp;
+    <span id="fadeIn">fade in</span>
+    <br /><br />
+    <img id="flower" src="images/flower.jpg" class="image" width="330" height="462" style="position: relative; left: 10px;" />
+    <br />
+    <span id="clickme">Click Me</span>
+</body>
+</html>

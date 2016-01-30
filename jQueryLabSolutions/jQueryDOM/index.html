@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.highlight { background:yellow; }
+	</style>
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+		   $('.state').each(function(i) {
+			  //alert(i + ' = ' + $(this).text()); 
+			  this.title = 'This Index = ' + i;
+			  $(this).prepend('<span class="lz">' + (i+1) + '. </span>');
+			  $(this).append('<span class="cn">, USA</span>'); 
+		   }); 
+
+		   $("img").attr({
+				title: "My Image Title",
+				border: "2",
+				style: "border-color:red"
+		   });
+
+		   $("#ri").click(function(){
+	   		   $(".cn, .lz").remove();
+		   });
+
+		   $(".state").hover(function(){ $(this).toggleClass("highlight"); });
+
+		}); 
+	</script>  
+
+</head>
+<body>
+	<div>
+	   <span id="ri" style="text-decoration:underline; cursor:pointer">
+	      Remove Nodes
+	   </span>
+	</div>
+
+	<div class="state">Alabama</div>
+	<div class="state">Alaska</div>
+	<div class="state">Arizona</div>
+	<div class="state">Arkansas</div>
+	<div class="state">California</div>
+	<div class="state">Colorado</div>
+	<div class="state">Connecticut</div>
+	<div class="state">Delaware</div>
+	<div class="state">Florida</div>
+	<div class="state">Georgia</div>
+	<img src="http://sriyauttara.files.wordpress.com/2014/01/aurora-borealis-in-norway.jpg" />   
+</body>
+</html>

@@ -1,0 +1,1 @@
+Open the examples folder, right-click index.html, and select View in Browser.

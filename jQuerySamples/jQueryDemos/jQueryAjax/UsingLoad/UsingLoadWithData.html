@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyButton').click(function () {
+                $('#OutputDiv').load('../GetCustomers.aspx',
+                                     {PageSize:10});
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="MyButton">Click to Get HTML</button>
+    <div id="OutputDiv"></div>
+</body>
+</html>

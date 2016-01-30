@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    <style type="text/css">
+        td {text-align:left;vertical-align:top;}
+        input[type=text] { background-color:#efefef;}
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .Highlight { background-color:Yellow;}
+        .LightHighlight { background-color: #ccc;}
+        .PhoneHighlight { background-color:#ccc;}
+        .PhoneNumber { margin-top:5px;width:80px;}
+        .PhoneType { margin-top:5px;}
+        .PhoneNumberDiv {text-align:left; vertical-align:middle; width:200px;float:left;margin-bottom:5px; height:30px; }
+        .PhoneTypeDiv { text-align:left; vertical-align:middle;width:100px;float:left; height:30px; }
+        </style>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            wireEvents();
+        });
+
+        function wireEvents() {
+            $('#SubmitButton').click(function () {
+                var firstNameVal = $('#FirstNameTextBox').val();
+                var lastNameVal = $('#LastNameTextBox').val();
+                $('#DivOutput').text(firstNameVal + ' ' + lastNameVal);
+                //Using unbind();
+                $('#MyDiv').unbind('mouseup');
+            });
+
+            //Handle select
+            $('.MyInput').change(function () {
+                alert($(this).val());
+                $(this).addClass('Highlight');
+            });
+
+              //Using short-cut event functions
+//            $('#MyDiv').mouseenter(function () {
+//                Toggle(this);
+//                $(this).css('cursor', 'pointer');
+//            })
+//            .mouseleave(function () {
+//                Toggle(this);
+//            })
+//            .mouseup(function (e) {
+//                alert($(e.target).attr('id'));
+//                $(this).text('X: ' + e.pageX + ' Y: ' + e.pageY);
+//            });
+
+//            function Toggle(div) {
+//               $(div).toggleClass('Highlight');
+//            }
+
+            //Using on()
+            $('#MyDiv').on('mouseenter mouseleave mouseup', function (e) {
+                $(this).toggleClass('Highlight');
+                $(this).css('cursor', 'pointer');
+                if (e.type == 'mouseup')
+                    $(this).text('X: ' + e.pageX + ' Y: ' + e.pageY);
+            });
+
+            //Using hover()
+//            $('#MyTable tr').hover(
+//                function () {
+//                    //mousenter
+//                    $(this).css('background-color', '#efefef');
+//                },
+//                function () {
+//                    //mouseleave
+//                    $(this).css('background-color', '#fff');
+//                });
+
+            $('#MyTable tr').hover(function () {
+                $(this).toggleClass('LightHighlight');
+            });
+
+            //Using toggle()
+//            $('#MyTable tr').toggle(
+//                function () {
+//                    //mousenter
+//                    $(this).css('background-color', '#efefef');
+//                },
+//                function () {
+//                    //mouseleave
+//                    $(this).css('background-color', '#fff');
+//                },
+//                function () {
+//                    //mouseleave
+//                    $(this).css('background-color', 'Yellow');
+//                }
+//                );
+
+            /*
+            <input type="button" id="AddPhone" value="Add Phone" />
+            <div id="PhonesDiv" style="margin-top:10px;">
+                <div class="PhoneTypeDiv">
+                    <select class="PhoneType">
+                        <option value="">Select One:</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Office">Office</option>
+                    </select>
+                </div>
+                <div class="PhoneNumberDiv">
+                    <input type="text" class="PhoneNumber" maxlength="12" />
+                </div>
+            </div>
+            */
+
+            var phonesDiv = $('#PhonesDiv');
+
+            $('#AddPhone').click(function () {                
+                var phoneSelDiv = $('div:eq(0)', phonesDiv).clone();
+                var phoneTbDiv = $('div:eq(1)', phonesDiv).clone();
+                $('select', phoneSelDiv).val('');
+                $('input', phoneTbDiv).val('');
+                phonesDiv.append('<div style="clear:both;" />')
+                         .append(phoneSelDiv)
+                         .append(phoneTbDiv);
+            });
+
+//            $('input', phonesDiv).live('keypress', function (e) {
+//                if ((e.keyCode < 48 || e.keyCode > 57) && e.keyCode != 45) {
+//                    e.stopPropagation();
+//                    return false;
+//                }
+            //            });
+
+            phonesDiv.delegate('input', 'keypress', function (e) {
+                if ((e.keyCode < 48 || e.keyCode > 57) && e.keyCode != 45) {
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+        }
+    </script>
+</head>
+<body>
+    <div id="MyDiv">This is some text</div>
+    <form id="form1" runat="server">
+        <table id="MyTable" style="width:300px;" cellpadding="5">
+            <tr>
+                <td style="width:30%;">First Name</td>
+                <td style="width:70%;"><input id="FirstNameTextBox" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input class="MyInput" id="LastNameTextBox" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><textarea class="MyInput" rows="5" cols="60" id="CommentsTextBox"></textarea></td>
+            </tr>   
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input type="button" id="AddPhone" value="Add Phone" />
+                    <div id="PhonesDiv" style="margin-top:10px;">
+                        <div class="PhoneTypeDiv">
+                            <select class="PhoneType">
+                                <option value="">Select One:</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Office">Office</option>
+                            </select>
+                        </div>
+                        <div class="PhoneNumberDiv">
+                            <input type="text" class="PhoneNumber" maxlength="12" />
+                        </div>
+                    </div>
+                </td>
+            </tr>        
+            <tr>
+                <td>
+                    State
+                </td>
+                <td>
+                    <select id="StatesSelect" class="MyInput">
+                        <option value="AZ">AZ</option>
+                        <option value="CA" selected="true">CA</option>
+                    </select>                
+                </td>
+            </tr>
+            <tr>
+                <td><input id="SubmitButton" type="button" value="Submit" /></td>
+                <td>
+                    <div id="DivOutput"></div>
+                </td>
+            </tr>
+        </table>  
+    </form>
+    <script type="text/javascript">
+        //Handle events the old-fashioned way
+//        var button = document.getElementById('SubmitButton');
+//        if (document.addEventListener) {
+//            button.addEventListener('click', function () { alert('Clicked Button'); }, false);
+//        }
+//        else {
+//            button.attachEvent('onclick', function () { alert('Clicked IE Button'); });
+//        }
+    </script>
+</body>
+</html>

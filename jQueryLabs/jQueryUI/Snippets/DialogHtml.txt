@@ -1,0 +1,12 @@
+﻿<div id="Dialog" title="Oops...Something's Wrong">
+    <br />
+    <div style="float:left;width:20%;margin-left:10px;">
+        <img src="Content/Images/Oops.jpg" align="middle" />
+    </div>
+    <div style="float:left;width:70%;margin-top:15px;">
+        <span style="font-weight:bold;">Please correct the following issue before continuing:</span>            
+    </div>
+    <div style="clear:both;"></div>
+    <br /><br />
+    <div id="DialogErrors" style="margin-left:10px;"></div>
+</div>

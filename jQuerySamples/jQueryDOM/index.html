@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style type="text/css">
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .Highlight { background-color:Yellow;}
+        </style>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Using .each()
+            var html = '';
+            $('div.BlueDiv,div.RedDiv').each(function (index) {
+                html += "<br />" + index + " " + $(this).text();
+            });
+            var output = $('#OutputDiv');
+            output.html(html);
+
+            //Modifying properties and attributes
+            $('div.BlueDiv,div.RedDiv').each(function (index) {
+                //raw DOM object
+                this.title = "Some title";
+                $(this).attr('title', 'Some title 2');
+            });
+
+            //Batch updates and chaining
+            $('div.BlueDiv,div.RedDiv')
+                .attr(
+                    {
+                        title: 'Some title 3'
+                    }
+                )
+                .css({
+                    'background-color': 'purple',
+                    'color': 'white',
+                    'font-size': '20pt'
+                }).text('Changed Color');
+
+            //Modifying the DOM
+            var tcd = $('#TableContainerDiv');
+            tcd.append('<span style="background-color:green">Appended Child 1</span>');
+            tcd.prepend('<br /><span style="background-color:green">Prepended Child 1</span>');
+            $('<br /><span style="background-color:green">Appended Child 2</span>').appendTo(tcd);
+            $('<span style="background-color:green">Prepended Child 2</span>').prependTo(tcd);
+
+            //Wrap
+            $('span.Foo').wrap('<div class="RedDiv ParentWrapper" />');
+            $('div.ParentWrapper').each(function () {
+                //alert($(this).html());
+            });
+
+            //Remove
+            $('div.ParentWrapper').remove();
+
+            //Class functions
+            //$('input[type="text"]').addClass('Highlight');
+            //$('#LastNameTextBox').removeClass('Highlight');
+
+
+        });
+
+        function focusBlur(tb) {
+            $(tb).toggleClass('Highlight');
+        }
+
+    </script>
+</head>
+<body>
+    <div id="OutputDiv"></div>
+    <div id="TableContainerDiv" title="Contains Table">
+        <table id="DataTable">
+          <tr>
+             <td>Cell 1 Row 1</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 2</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 3</td>
+          </tr>
+          <tr>
+             <td>
+                <table style="width:100%">
+                    <tr>
+                        <td>Nested Table Cell and Row</td>
+                    </tr>
+                </table>
+             </td>
+          </tr>
+        </table>
+    </div>
+    <div class="BlueDiv">
+        <span>Blue div</span>
+    </div>
+    <span class="Foo">Span 1</span>
+
+    <span class="Foo">Span 2</span>
+
+    <span id="Span3" class="Foo">Span 3</span>
+    <br />
+    <div class="RedDiv">
+        <span>Red div</span>
+    </div>
+    <form id="form1" runat="server">
+        <table style="width:300px;">
+            <tr>
+                <td style="width:30%;">First Name</td>
+                <td style="width:70%;"><input id="FirstNameTextBox" onfocus="focusBlur(this)" onblur="focusBlur(this)" value="John" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input id="LastNameTextBox" onfocus="focusBlur(this)" onblur="focusBlur(this)" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><textarea rows="5" cols="60" id="CommentsTextBox">TextArea</textarea></td>
+            </tr>           
+            <tr>
+                <td>
+                <select id="sel">
+                    <option value="AZ">AZ</option>
+                    <option value="CA" selected="true">CA</option>
+                </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><input id="SubmitButton" type="button" value="Submit" /></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>  
+
+    </form>
+</body>
+</html>

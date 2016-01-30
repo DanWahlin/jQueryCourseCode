@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript">
+$(document).ready(function () {
+    $('#MyButton').click(function () {
+        $.post('../CustomerService.svc/GetCustomers', null,
+            function (data) {
+                var cust = data.d[0];
+                alert(cust.FirstName + ' ' + cust.LastName);
+            }, 'json');
+    });
+});
+    </script>
+</head>
+<body>
+    <button id="MyButton">Click to Get Customers From WCF Service</button>
+    <div id="OutputDiv"></div>
+</body>
+</html>

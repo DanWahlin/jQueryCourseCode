@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="../../Scripts/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#HelpButton').click(function () {
+                $('#OutputDiv').load('NotFound.html',
+                    function (response, status, xhr) {
+                        if (status == "error") {
+                            alert(xhr.statusText);
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="HelpButton">Click to Get HTML</button>
+    <div id="OutputDiv"></div>
+</body>
+</html>

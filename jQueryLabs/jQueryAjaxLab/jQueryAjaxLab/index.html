@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Using jQuery ajax()</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        img {
+            height: 50px;
+            width: 50px;
+        }
+
+        #ProductsDiv {
+            overflow: auto;
+            height: 300px;
+        }
+
+        .HeaderText {
+            font-weight: bold;
+            font-size: 14pt;
+        }
+
+        .ProductDivContainer {
+            cursor: pointer;
+            padding-top: 10px;
+            clear: both;
+        }
+
+        .ProductDiv {
+            width: 90%;
+            height: 50px;
+            margin-left: 10px;
+            font-size: 10pt;
+            float: left;
+        }
+
+        .ImageDiv {
+            float: left;
+        }
+
+        .Over {
+            background-color: #efefef;
+        }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="Scripts/products.js"></script>
+</head>
+<body>
+    <form id="form1">
+        <span class="HeaderText">Golf Products:</span>
+        <div id="ProductsDiv">
+        
+        </div>
+        <br />
+        <span class="HeaderText">Product Details:</span>
+        <table style="width:300px;">
+            <tr>
+                <td>Product ID:</td>
+                <td id="ProductID"></td>
+            </tr>
+            <tr>
+                <td>Model Name:</td>
+                <td><input id="ModelName" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td><select id="Categories" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="SubmitButton">Update</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

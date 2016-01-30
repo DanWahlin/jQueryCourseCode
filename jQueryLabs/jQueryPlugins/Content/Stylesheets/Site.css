@@ -1,0 +1,588 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background: #fff repeat-x;
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+a 
+{
+	text-decoration: none;
+}
+
+a:link
+{
+    color: black;
+    text-decoration: none;
+}
+a:visited
+{
+    color: black;
+}
+a:hover
+{
+    color: black;
+    text-decoration: underline;
+}
+a:active
+{
+    color: black;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2 
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#F4C953;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+}
+
+h2
+{
+    padding: 5px;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+}
+
+#TopBar
+{
+	height:1.9em;
+	background-color:#cccccc;
+	color:Black;
+}
+
+#TopBarContent
+{
+	width:900px;
+	line-height:1.9em;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:right;
+}
+
+#header
+{
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10px;
+    color: #000;
+    
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: black;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px !important;
+}
+
+div#title
+{
+	margin-top:25px;
+	text-align:right;
+	margin-right:150px;
+}
+
+#menu
+{
+	float:right;
+    font-size:1.4em;
+    margin:10px;
+    color:black;
+    margin-top:15px;
+	padding-left:10px;
+	padding-right:10px;
+    height: 3.0em;
+    line-height: 3.0em;
+    text-align:center;
+
+ }
+
+#menu a:link
+{
+    color: #2A7593;
+    text-decoration: none;
+}
+
+#menu a:visited
+{
+    color: #2A7593;
+    text-decoration: none;
+}
+
+#menu a:hover
+{
+    color: #F0AF00;
+    text-decoration: underline;
+}
+
+#main
+{
+	clear:both;
+	width:900px;
+	margin-left:auto;
+    margin-right:auto;
+    padding: 10px 30px 25px 30px;
+    min-height:400px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
+}
+
+#footer
+{
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	clear:both;
+    color: #000;
+    text-align: left;
+    vertical-align: middle;
+    font-size: .9em;
+    min-height:10px;
+    padding-bottom:10px;
+    background-color:#efefef;
+    border:1px solid #cccccc;
+    padding-left:10px;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu
+{
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    margin: 0;
+    height:20px;
+}
+
+ul#menu li
+{
+    display: inline;
+    background-color: #02027a;
+    list-style: none;
+	padding:10px;
+    min-height:20px;
+}
+
+ul#menu li a
+{
+	height:20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+ul#menu li a:hover
+{
+    background-color: #02027a;
+    color:#ffffff;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 0 0;
+    padding: 1em;
+    border-top: 1px solid #F0AF00;
+    border-bottom: 0px solid #F0AF00;
+    border-left: 0px solid #cccccc;
+    border-right: 0px solid #cccccc;
+    font-size:10pt;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset label 
+{
+
+    font-weight:bold;
+    font-size:100%;
+}
+
+fieldset label.inline 
+{
+    display: inline;        
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type=text], input[type=password]
+{
+    width: 225px;
+    height: 22px;
+    border: 2px solid #ddd;
+    font-weight:300;
+    font-size:11pt;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus
+{
+	border:2px solid #828282;
+}
+
+textarea
+{
+	border: 2px solid #ddd;
+}
+
+:focus
+{
+	outline-style: none;
+	outline-color: invert;
+	outline-width: medium;
+	-moz-outline-style: none;
+}
+
+
+
+select
+{
+    height: 25px;
+    border: 2px solid #ddd;
+    font-weight:300;
+}
+
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{  
+  border-collapse: collapse;
+}
+
+table td 
+{
+  padding: 5px;   
+  vertical-align:top;
+  font-size:10pt;
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+#OrderHistoryTable th
+{
+	cursor:pointer;
+}
+
+#OrderHistoryTable .even
+{
+	background-color:#efefef;
+}
+
+#OrderHistoryTable_info
+{
+	margin-top:20px;
+	font-weight:bold;
+}
+
+
+.dataTables_paginate {
+	width: 90px;
+	* width: 90px;
+	float: right;
+	text-align: right;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 40px;
+	width: 40px;
+	margin-left: 3px;
+	float: left;
+	cursor:pointer;
+}
+
+
+.paginate_disabled_previous {
+	background-image: url('/Content/images/back_disabled.png');
+}
+
+.paginate_disabled_next {
+	background-image: url('/Content/images/forward_disabled.png');
+}
+
+
+.paginate_enabled_previous {
+	background-image: url('/Content/images/back_enabled.png');
+}
+
+.paginate_enabled_next {
+	background-image: url('/Content/images/forward_enabled.png');
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables sorting
+
+
+.sorting_asc {
+	background: url('/Content/images/sort_asc.jpg') no-repeat center right;
+}
+
+.sorting_desc {
+	background: url('/Content/images/sort_desc.jpg') no-repeat center right;
+}
+
+.sorting {
+	background: url('/Content/images/sort_both.jpg') no-repeat center right;
+}
+
+
+.example_alt_pagination div.dataTables_paginate span.paginate_button,
+ 	.example_alt_pagination div.dataTables_paginate span.paginate_active {
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+}
+ */
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+#menucontainer
+{
+ 
+}
+
+a.HeaderLink
+{
+	font-size:15pt;
+}
+
+
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.StatusMessage 
+{
+	color:Navy;
+	font-size:9pt;
+	font-weight:bold;
+}
+
+.TabPane
+{
+		
+}
+
+.Tab {}
+
+.ValidationSummary
+{
+	color:Red;
+	font-size:9pt;
+	font-weight:bold;
+}
+
+#VendorsTable thead { display:none;background-color:#fff;}
+.Map { border: solid 1px #000; height: 400px; position: relative; width: 100%;visibility:hidden}
+#HideMapLink {font-weight:bold;text-align:right;cursor:pointer;visibility:hidden;}
+.MapHidden {display:none;}
+.Vendor { font-weight:bold;font-size:10pt;}
+.Alt {background-color: #efefef;}
+.Over {background-color: #FFFC63;color:black;cursor:pointer;}
+.Over a {color:black;}
+.VendorNameHeader {font-size:14pt;font-weight:bold;}
+.OrderHeader {border-bottom:1px solid #cccccc;background-color:#efefef; font-size:12pt;font-weight:bold;}
+.OrderItem {font-size:10pt;font-weight:bold;}
+.OrderItemDesc {}
+/* Needed for virtual earth to hide strange textbox */
+.MSVE_KeyboardInput {visibility:hidden;} 
+.ViewOrderLink 
+{
+	font-weight:bold;
+	color:green;
+	cursor:pointer;
+}
+
+#Dialog
+{
+    display:none;
+}
+
+/* WIZARD  
+----------------------------------------------------------*/
+.WizardStepHeaderContainer 
+{
+
+}
+
+.WizardStepHeaderFirst 
+{
+	border-left:1px solid #cccccc;
+}
+
+.WizardStepHeader 
+{
+	float: left;
+	height: 2.7em;
+	line-height: 2.7em; /* used to center text vertically...only works with single line though */
+	width:175px;
+	color:#cccccc;
+	background-color:#efefef;
+	float:left;
+	border-top:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	text-align:center;
+	cursor:pointer;
+}
+
+.WizardStepHeaderCurrent
+{
+	font-weight:bold;
+	color:white;
+	background-color:#284093;
+	border:2px solid #409328;
+}
+
+.WizardStep
+{
+	display:none;	
+	min-height:400px;
+}
+
+.WizardStepComplete
+{
+	background-color:#5E5E5E;
+	color:white;
+}
+
+.WizardControls
+{
+	margin-top: 15px;
+}
+
+.WizardButton
+{
+	cursor:pointer;
+}
+
+.WizardButtonHidden
+{
+	visibility: hidden;
+}
+
+.Instructions
+{
+	font-size:11pt;
+}
+
