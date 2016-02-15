@@ -73,10 +73,6 @@ function showProduct() {
 
 }
 
-function OverOut() {
-    $(this).toggleClass('Over');
-}
-
 var serviceUrl = 'api/dataservice/',
     images = 'ProductImages/thumbs/',
     currProd;
