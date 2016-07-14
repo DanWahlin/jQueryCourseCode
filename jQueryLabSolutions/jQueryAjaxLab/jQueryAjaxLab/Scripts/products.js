@@ -51,17 +51,18 @@ function update() {
         type: 'PUT',
         data: JSON.stringify(currProd),
         dataType: 'json',
-        contentType: 'application/json',
-        success: function (data) {
-            if (data.Status) {
-                currProd = null;
-                getProducts();
-            }
-            else {
-                alert("Update failed.");
-            }
-        },
+        contentType: 'application/json'
+    })
+    .done(function (data) {
+        if (data.Status) {
+          currProd = null;
+          getProducts();
+        }
+        else {
+          alert("Update failed.");
+        }
     });
+
     return false;
 }
 

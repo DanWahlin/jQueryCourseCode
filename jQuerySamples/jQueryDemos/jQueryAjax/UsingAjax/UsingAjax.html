@@ -11,13 +11,13 @@
                 $.ajax({
                     url: '../CustomerService.svc/InsertCustomer',                   
                     data: customer,
-                    dataType: 'json',
-                    success: function (data, status, xhr) {
-                        alert("Insert status: " + data.d.Status + '\n' + data.d.Message);
-                    },
-                    error: function (xhr, status, error) {
-                        alert('Error occurred: ' + status);
-                    }
+                    dataType: 'json'
+                })
+                .done(function (data) {
+                	alert("Insert status: " + data.d.Status + '\n' + data.d.Message);
+                })
+                .fail(function (xhr, status) {
+               	    alert('Error occurred: ' + status);
                 });
             });
         });
