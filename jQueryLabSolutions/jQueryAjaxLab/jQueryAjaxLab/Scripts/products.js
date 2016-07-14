@@ -55,11 +55,11 @@ function update() {
     })
     .done(function (data) {
         if (data.Status) {
-          currProd = null;
-          getProducts();
+           currProd = null;
+           getProducts();
         }
         else {
-          alert("Update failed.");
+           alert("Update failed.");
         }
     });
 
